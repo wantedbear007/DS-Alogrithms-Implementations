@@ -20,37 +20,37 @@ struct binaryTree {
 };
 
 // move this
-binaryTree * insertOptimized() {
-    int rootVal = 0; 
-    cout << "Enter the root value: "; cin >> rootVal;
+// binaryTree * insertOptimized() {
+//     int rootVal = 0; 
+//     cout << "Enter the root value: "; cin >> rootVal;
 
-    binaryTree * root = new binaryTree(rootVal);
-    queue<binaryTree*> pendingNodes;
-    pendingNodes.push(root);
+//     binaryTree * root = new binaryTree(rootVal);
+//     queue<binaryTree*> pendingNodes;
+//     pendingNodes.push(root);
 
-    while (pendingNodes.size() != 0) {
-        binaryTree * frontNode = pendingNodes.front();
-        pendingNodes.pop();
+//     while (pendingNodes.size() != 0) {
+//         binaryTree * frontNode = pendingNodes.front();
+//         pendingNodes.pop();
 
-        int leftData = 0, rightData = 0;
-        cout << "Enter the left child data; "; cin >> leftData;
-        if (leftData != -1) {
-            binaryTree * leftNode = new binaryTree(leftData);
-            frontNode->left = leftNode;
-            pendingNodes.push(leftNode);
-        }
+//         int leftData = 0, rightData = 0;
+//         cout << "Enter the left child data; "; cin >> leftData;
+//         if (leftData != -1) {
+//             binaryTree * leftNode = new binaryTree(leftData);
+//             frontNode->left = leftNode;
+//             pendingNodes.push(leftNode);
+//         }
 
-        cout << "Enter the right child data: "; cin >> rightData;
-        if (rightData != -1) {
-            binaryTree * rightNode = new binaryTree(rightData);
-            frontNode -> right = rightNode;
-            pendingNodes.push(rightNode);
-        }
-     }
+//         cout << "Enter the right child data: "; cin >> rightData;
+//         if (rightData != -1) {
+//             binaryTree * rightNode = new binaryTree(rightData);
+//             frontNode -> right = rightNode;
+//             pendingNodes.push(rightNode);
+//         }
+//      }
 
-     return root;
+//      return root;
 
-}
+// }
 
 // easy way
 void printTree(binaryTree * root) {  
