@@ -17,6 +17,8 @@ binaryTree * insert() {
     int value = 0;
     cout << "Enter the root data: "; cin >> value;
 
+    if (value == -1) return NULL;
+
     binaryTree * root = new binaryTree(value);
     queue<binaryTree*> pendingNodes;
     pendingNodes.push(root);
@@ -51,17 +53,29 @@ binaryTree * insert() {
 void traverse(binaryTree * root) {
     if (root == NULL) return;
     cout << root -> data << ": ";
+
     
     if (root -> left != NULL) {
-        cout << root -> left -> data << ", ";
+        cout << "L" << root -> left -> data << ", ";
     }
 
     if (root -> right != NULL) {
-        cout << root -> right -> data << ", ";
+        cout << "R" <<root -> right -> data << ", ";
     }
+
+    cout << endl;
 
     traverse(root -> left);
     traverse(root -> right);
+}
+
+// in-order traversal
+void inOrder(binaryTree * root) {
+    if (root == NULL) return;
+
+    inOrder(root -> left);
+    cout << root -> data << ", ";
+    inOrder(root -> right);
 }
 
 int main() {
