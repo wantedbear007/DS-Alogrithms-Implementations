@@ -61,13 +61,29 @@ void traverse(bstNode * root) {
     cout << endl;
     traverse(root -> left);
     traverse(root -> right);
+    // cout << endl;
+}
+// 10 8 12 4 9 -1 -1 -1 -1 -1 -1
+bstNode * searchElement(int value, bstNode * root) {
+    if (root == NULL || root -> data == value) {
+        return root;
+    }
+
+    if (root -> data > value) {
+        return searchElement(value, root -> left);
+    } else return searchElement(value, root -> right);
 }
 
 int main() {
     cout << "Program is working :)" << endl;
 
     bstNode * root = insert();
+    cout << endl;
     traverse(root);
 
+    bstNode * searchedElement =  searchElement(4, root);
+    if (searchedElement != NULL) {
+        cout << "Element found: " << searchedElement -> data;
+    } else cout << "Element not found";
     return 0;
 }
