@@ -56,6 +56,23 @@ void reverse_print() {
     }
 }
 
+void delete_last() {
+    if (start == NULL) {
+        cout << "underflow" << endl;
+    } else {
+        node * temp = start;
+        node * preTemp = temp;
+        while (temp -> next != NULL) {
+            preTemp = temp;
+            temp = temp -> next;
+        }
+
+        preTemp -> next = NULL;
+        free(temp);
+
+    }
+}
+
 int main() {
     cout << "Program is working fine :)" << endl;
     insert(12);
@@ -64,6 +81,10 @@ int main() {
     insert(16);
 
 
+    traverse();
+    
+    delete_last();
+    cout << endl;
     traverse();
     cout << "\nPrinting in reverse order " << endl;
     reverse_print();
